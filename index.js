@@ -66,7 +66,8 @@ app.get('/api/BTC_USDT', async function (req, res) {
 })
 app.get('/', function (req, res) {
     res.json({
-        api: "https://api-bot-trading.vercel.app/api/BTC_USDT"
+        api: "https://api-bot-trading.vercel.app/api/BTC_USDT",
+        website: "https://fe-bot-trading.vercel.app/"
     });
 })
 
