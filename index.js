@@ -61,6 +61,11 @@ app.get('/api/BTC_USDT', async function (req, res) {
         ...ar
     });
 })
+app.get('/', function (req, res) {
+    res.json({
+        api: "https://api-bot-trading.vercel.app/api/BTC_USDT"
+    });
+})
 
 app.listen(3000, () => {
     console.log(`Example app listening on port ${3000}`)
