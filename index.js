@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const ccxt = require('ccxt');
 const moment = require('moment');
+const cors = require('cors');
+app.use(express.json());
+app.use(cors());
 
 const asciichart = require('asciichart');
 

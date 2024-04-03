@@ -9,6 +9,7 @@
   "dependencies": {
     "asciichart": "^1.5.25",
     "ccxt": "^4.2.88",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "moment": "^2.30.1"
   },
