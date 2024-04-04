@@ -40,7 +40,7 @@ async function Tick() {
     const average = bPrice.reduce((a, b) => a + b.close, 0) / bPrice.length;
     const lastPrice = bPrice[bPrice.length - 1].close;
     const direction = lastPrice > average ? 'buy' : 'sell';
-    const TRADE_SIZE = 10;
+    const TRADE_SIZE = 50;
     const quantity = TRADE_SIZE / lastPrice;
     console.log(`Average Price: ${average} Last Price: ${lastPrice} Direction: ${direction} Quantity: ${quantity}`);
     const order = await binance.createMarketOrder('BTC/USDT', direction, quantity);
