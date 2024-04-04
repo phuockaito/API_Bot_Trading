@@ -27,7 +27,7 @@ async function printBalance(btcPrice) {
 }
 
 async function Tick() {
-    const price = await binance.fetchOHLCV('BTC/USDT', '1s', undefined, 100);
+    const price = await binance.fetchOHLCV('BTC/USDT', '1m', undefined, 100);
     const bPrice = price.map((item) => {
         return {
             trade_date: moment(item[0]).format('YYYY-MM-DD HH:mm:ss'),
