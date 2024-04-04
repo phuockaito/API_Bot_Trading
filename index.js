@@ -55,7 +55,7 @@ async function Tick() {
         trade_price: lastPrice,
         order,
         stock_data: bPrice,
-        log_buy_sell: `${moment().format()}: ${direction} ${quantity} BTC at ${lastPrice}`
+        log_buy_sell: `${moment().format("DD-MM-YYYY HH:mm:ss")}: ${direction} ${quantity} BTC at ${lastPrice}`
     };
 }
 
