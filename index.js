@@ -30,7 +30,7 @@ async function Tick() {
     const price = await binance.fetchOHLCV('BTC/USDT', '1s', undefined, 100);
     const bPrice = price.map((item) => {
         return {
-            time: moment(item[0]).format('YYYY-MM-DD HH:mm:ss'),
+            trade_date: moment(item[0]).format('YYYY-MM-DD HH:mm:ss'),
             open: item[1],
             high: item[2],
             low: item[3],
@@ -54,14 +54,22 @@ async function Tick() {
         quantity: quantity,
         trade_size: TRADE_SIZE,
         trade_price: lastPrice,
-        order
+        order,
+        stock_data: bPrice.map((i) => {
+            return {
+                ...i,
+                vol: quantity * average,
+                ts_code: order.clientOrderId,
+                amount: quantity
+            }
+        })
     };
 }
 
 app.get('/api/BTC_USDT', async function (req, res) {
     const ar = await Tick();
     res.json({
-        ...ar
+        ...ar,
     });
 })
 app.get('/', function (req, res) {
